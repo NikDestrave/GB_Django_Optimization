@@ -1,0 +1,13 @@
+<ul class="menu menu_admin">
+    <li><a href="{% url 'main' %}">На сайт</a></li>
+    <li>
+        <a href="{% url 'admin:users' %}">
+            Пользователи
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'admin:categories' %}">
+            Категории{% if category %}: <span>{{ category.name }}</span>{% endif %}
+        </a>
+    </li>
+</ul>

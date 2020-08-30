@@ -1,0 +1,16 @@
+<ul class="menu">
+    <li>
+        <a href="{% url 'catalog:category' 0 %}"
+           style="{% if request.resolver_match.kwargs.pk|add:'0' == link.pk %}
+               color: #007bff;
+           {% endif %}">
+            ВСЕ
+        </a>
+    </li>
+    {% for link in links_menu %}
+        <li><a href="{% url 'catalog:category' link.pk %}"
+               style="{% if request.resolver_match.kwargs.pk|add:'0' == link.pk %}
+                   color: #007bff;
+               {% endif %}">{{ link.name|upper }}</a></li>
+    {% endfor %}
+</ul>

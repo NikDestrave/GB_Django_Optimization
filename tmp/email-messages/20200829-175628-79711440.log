@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0J/QvtC00YLQstC10YDQttC00LXQvdC40LUg0YPRh9C10YLQvdC+0Lkg0LfQsNC/?=
+ =?utf-8?b?0LjRgdC4IGRqYW5nbzg=?=
+From: django@geekshop.local
+To: django8@gb.com
+Date: Sat, 29 Aug 2020 10:56:28 -0000
+Message-ID: <159869858892.10084.11868670917300154673@Best-Komp>
+
+Для подтверждения учетной записи django8 в интернет-магазине http://localhost:8088 перейдите по ссылке: 
+http://localhost:8088/auth/verify/django8@gb.com/cb0b310639e0c9c5339f953edd3b7cc2a9f4480b/
+-------------------------------------------------------------------------------
