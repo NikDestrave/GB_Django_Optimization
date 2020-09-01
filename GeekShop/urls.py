@@ -1,4 +1,3 @@
-
 from django.conf.urls.static import static
 from django.urls import path, include
 
@@ -10,6 +9,7 @@ urlpatterns = [
     path('catalog/', include('mainapp.urls', namespace='catalog')),
     path('basket/', include('basketapp.urls', namespace='basket')),
     path('auth/', include('authapp.urls', namespace='auth')),
+    path('', include('social_django.urls', namespace='social')),
     path('contacts/', views.contacts, name='contacts'),
     path('games/', views.games, name='games'),
     path('catalog/product_1', views.product_1, name='product_1'),

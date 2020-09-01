@@ -13,5 +13,14 @@
         <a href={% url 'auth:register' %}>
             <input type="button" class="button button_buy" value="Зарегистрироваться">
         </a>
+        <a href="{% url 'social:begin' 'vk-oauth2' %}?next=/">
+            <input type="button" class="button button_buy" value="ВКонтакте">
+        </a>
+        <a href="{% url 'social:begin' 'facebook' %}?next=/">
+            <input type="button" class="button button_buy" value="FaceBook">
+        </a>
+        <a href="{% url 'social:begin' 'google-oauth2' %}?next=/">
+            <input type="button" class="button button_buy" value="Google">
+        </a>
     </form>
 {% endblock %}
