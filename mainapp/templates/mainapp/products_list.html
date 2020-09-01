@@ -1,0 +1,45 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="details">
+        <h1 style="text-align: center">Каталог</h1>
+        <div style="text-align: center">
+            {% include 'mainapp/include/inc_category_menu.html' %}
+        </div>
+
+        <div class="products_list">
+            <div class="title clearfix">
+                <h2>Категория: "{{ category.name|title }}"</h2>
+                <div class="paginator">
+                    {% if products.has_previous %}
+                        <a href="{% url 'catalog:page' category.pk products.previous_page_number %}"><</a>
+                    {% endif %}
+                    <span class="current">
+                    страница {{ products.number }} из {{ products.paginator.num_pages }}
+                    </span>
+                    {% if products.has_next %}
+                        <a href="{% url 'catalog:page' category.pk products.next_page_number %}">
+                            >
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="pr">
+                {% for product in products %}
+                    <div class="pr_1">
+                        <img class="product" id="pr_1_{{ product.id_class }}" src="/media/{{ product.src }}"
+                             style="height: 500px;">
+                        <span>{{ product.name }}</span>
+                        <span>{{ product.price }} ₽</span>
+                        <input type="button" class="button_buy" value="Купить" id="shop_item_{{ product.id_button }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+[
+  {
+    "category": "Ёлектрогитары",
+    "id_class": "pr_1_0",
+    "src": "products_images/DEMON_2.png",
+    "name": "Schecter Demon-7",
+    "price": "32000",
+    "id_button": "shop_item_0"
+  },
+  {
+    "category": "Ёлектрогитары",
+    "id_class": "pr_1_1",
+    "src": "products_images/OMEN-8_2.png",
+    "name": "Schecter OMEN-8",
+    "price": "24000",
+    "id_button": "shop_item_1"
+  },
+  {
+    "category": "Ѕас-гитары",
+    "id_class": "pr_1_2",
+    "src": "products_images/C-5_SGR_2.png",
+    "name": "Schecter C-5 BASS SGR",
+    "price": "17000",
+    "id_button": "shop_item_2"
+  },
+  {
+    "category": "Ёлектрогитары",
+    "id_class": "pr_1_3",
+    "src": "products_images/SILVER_MOUNTAIN_C-1_FR-S_TILT.png",
+    "name": "C-1 FR S Silver Mountain",
+    "price": "62000",
+    "id_button": "shop_item_3"
+  },
+  {
+    "category": "Ѕас-гитары",
+    "id_class": "pr_1_4",
+    "src": "products_images/SLS_ELITE_BFB_5_1394_TILT5.png",
+    "name": "SLS Elite-5",
+    "price": "39000",
+    "id_button": "shop_item_4"
+  },
+  {
+    "category": "Ѕас-гитары",
+    "id_class": "pr_1_5",
+    "src": "products_images/C-4_APOCALYPSE_RUSTY_GREY_1317_TILT.png",
+    "name": "C-4 Apocalypse",
+    "price": "27000",
+    "id_button": "shop_item_5"
+  }
+]

@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block js %}
+    <script src="{% static 'js/snake.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center">Змейка</h1>
+    <div class="wrap">
+        <div id="snake-field"></div>
+        <div class="buttons">
+            <input type="button" class="button_buy" id="snake-start" value="Старт">
+            <input type="button" class="button_buy" id="snake-renew" value="Новая игра">
+        </div>
+        <div class="count">
+            Ваш счет:
+            <span id="count_id">
+                    0
+                </span>
+            очков
+        </div>
+    </div>
+{% endblock %}

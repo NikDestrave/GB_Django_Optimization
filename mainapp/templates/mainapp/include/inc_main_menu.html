@@ -1,0 +1,37 @@
+<ul class="menu">
+    <li><a href="{% url 'main' %}">Главная</a></li>
+    <li><a href="{% url 'catalog:category' 0 %}">Каталог</a>
+        <ul class="submenu">
+            <a class="submenu_items" href="{% url 'product_1' %}">Schecter Demon-7</a>
+            <a class="submenu_items" href="{% url 'product_2' %}">Schecter OMEN-8</a>
+            <a class="submenu_items" href="{% url 'product_3' %}">Schecter C-5 BASS SGR</a>
+        </ul>
+    </li>
+    <li><a href="{% url 'contacts' %}">Контакты</a></li>
+    <li><a href="{% url 'games' %}">Игры</a></li>
+    {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'auth:edit' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+        </li>
+    {% endif %}
+    {% if user.is_superuser %}
+        <li>
+            <a href="{% url 'admin:users' %}">Админка</a>
+        </li>
+    {% endif %}
+    <li>
+        {% if user.is_authenticated %}
+            <a href="{% url 'auth:logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'auth:login' %}">Войти</a>
+        {% endif %}
+    </li>
+    <li>
+        <a href="{% url 'basket:view' %}"><i class="fa fa-shopping-basket" aria-hidden="true"></i>
+            {% if basket %}&nbsp;&nbsp;{{ basket.0.total_cost|floatformat:0 }} руб ({{ basket.0.total_quantity }} шт)
+            {% endif %}
+        </a>
+    </li>
+</ul>

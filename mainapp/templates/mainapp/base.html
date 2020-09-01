@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title|title }}</title>
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="{% static 'fontawesome-free-5.14.0-web/css/all.css' %}">
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+</head>
+
+<body>
+<div class="container">
+    {% block menu %}
+        <div class="logo_div">
+            <a href="{% url 'main' %}"><img class="logo" src="{% static 'img/logo.png' %}"
+            alt="logo"></a>
+        </div>
+        <div class="header">
+            <nav class="one">
+                {% include 'mainapp/include/inc_main_menu.html' %}
+            </nav>
+        </div>
+    {% endblock %}
+    <hr style="opacity: 0.5">
+    {% block content %}
+    {% endblock %}
+    <div class="clr"></div>
+</div>
+{% block footer %}
+    <footer class="footer">
+        <hr style="opacity: 0.5">
+        <p style="margin-top: 10px">
+            Все права защищены &copy; {% now 'Y' %}
+            <a href="#" target="_blank">Nik Destrave</a>
+        </p>
+    </footer>
+{% endblock %}
+
+</body>
+</html>
