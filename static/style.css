@@ -568,15 +568,20 @@ td.game-table-cell {
     margin-left: 10px;
 }
 
-.product_read{
+.product_read {
     display: flex;
     justify-content: space-around;
 }
 
-.product_read img{
+.product_read img {
     width: 200px;
 }
 
 .entrance-help {
     margin: 10px 0;
+}
+
+.order_container {
+    width: 900px;
+    margin: auto;
 }

@@ -9,18 +9,14 @@
                 <td><input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}"></td>
                 <td class="product_cost">{{ item.cost }}&nbspруб</td>
                 <td>
-                    <input type="button" class="button_buy">
-                        <a href="{% url 'basket:remove' item.pk %}" class="">
-                            удалить
-                        </a>
-                    </input>
+                    <a href={% url 'basket:remove' item.pk %}>
+                        <input type="button" class="button button_buy" value="Удалить">
+                    </a>
                 </td>
             </tr>
         {% endfor %}
     </table>
 </div>
-
-
 {% if basket_items %}
     <div class="basket_summary">
         В корзине {{ basket_items.0.total_quantity }} товаров общей стоимостью
