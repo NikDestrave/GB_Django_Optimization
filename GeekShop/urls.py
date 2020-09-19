@@ -16,6 +16,7 @@ urlpatterns = [
     path('catalog/product_2', views.product_2, name='product_2'),
     path('catalog/product_3', views.product_3, name='product_3'),
     path('admin/', include('adminapp.urls', namespace='admin')),
+    path('order/', include('ordersapp.urls', namespace='order'))
 ]
 
 if settings.DEBUG:

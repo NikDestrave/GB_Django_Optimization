@@ -1,5 +1,6 @@
 import random
 
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 
@@ -22,6 +23,19 @@ def main(request):
         'title': 'Главная'
     }
     return render(request, 'mainapp/index.html', content)
+
+
+@login_required
+def basket(request):
+    title = 'корзина'
+    basket_items = Basket.objects.filter(user=request.user).order_by('product__category')
+
+    content = {
+        'title': title,
+        'basket_items': basket_items,
+    }
+
+    return render(request, 'basketapp/basket.html', content)
 
 
 def catalog(request, pk=None, page=1):

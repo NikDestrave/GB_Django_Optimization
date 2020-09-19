@@ -14,24 +14,46 @@
             <a href="{% url 'auth:edit' %}">
                 {{ user.first_name|default:'Пользователь' }}
             </a>
+            <ul class="submenu">
+                {% if user.is_superuser %}
+                    <a class="submenu_items" href="{% url 'admin:users' %}">Админка</a>
+                {% endif %}
+                <a class="submenu_items" href="{% url 'auth:edit' %}">Профиль</a>
+                <a class="submenu_items" href="{% url 'ordersapp:orders_list' %}">Заказы</a>
+                <a class="submenu_items" href="{% url 'auth:logout' %}">Выйти</a>
+            </ul>
         </li>
     {% endif %}
-    {% if user.is_superuser %}
+    {% if not user.is_authenticated %}
         <li>
-            <a href="{% url 'admin:users' %}">Админка</a>
+            <a href="{% url 'auth:login' %}">Войти</a>
         </li>
     {% endif %}
-    <li>
-        {% if user.is_authenticated %}
-            <a href="{% url 'auth:logout' %}">Выйти</a>
-        {% else %}
-            <a href="{% url 'auth:login' %}">Войти</a>
-        {% endif %}
-    </li>
     <li>
         <a href="{% url 'basket:view' %}"><i class="fa fa-shopping-basket" aria-hidden="true"></i>
             {% if basket %}&nbsp;&nbsp;{{ basket.0.total_cost|floatformat:0 }} руб ({{ basket.0.total_quantity }} шт)
             {% endif %}
         </a>
+        <ul class="submenu">
+            {% for item in basket_items %}
+                <table>
+                    <tr>
+                        {#    <img src="/media/{{ item.product.image }}" alt="{{ item.product.short_desc }}">#}
+                        <td class="category_name">{{ item.product.category.name }}</td>
+                        <td class="product_name">{{ item.product.name }}</td>
+                        <td class="product_price">{{ item.product.price }}&nbspруб</td>
+                        <td><input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}"></td>
+                        <td class="product_cost">{{ item.cost }}&nbspруб</td>
+                        <td>
+                            <input type="button" class="button_buy">
+                            <a href="{% url 'basket:remove' item.pk %}" class="">
+                                удалить
+                            </a>
+                            </input>
+                        </td>
+                    </tr>
+                </table>
+            {% endfor %}
+        </ul>
     </li>
 </ul>
