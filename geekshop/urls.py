@@ -19,10 +19,10 @@ urlpatterns = [
     path('order/', include('ordersapp.urls', namespace='order'))
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-if settings.DEBUG:
-   import debug_toolbar
-
-   urlpatterns += [re_path(r'^__debug__/', include(debug_toolbar.urls))]
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#
+# if settings.DEBUG:
+#    import debug_toolbar
+#
+#    urlpatterns += [re_path(r'^__debug__/', include(debug_toolbar.urls))]
