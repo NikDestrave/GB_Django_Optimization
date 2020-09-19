@@ -30,20 +30,20 @@
                     <td>{{ item.get_status_display }}</td>
                     <td>
                         <a href="{% url 'ordersapp:order_read' item.pk %}">
-                            посмотреть
+                            Посмотреть
                         </a>
                     </td>
                     <td>
                         {% if item.status == 'FM' %}
                             <a href="{% url 'ordersapp:order_update' item.pk %}">
-                                редактировать
+                                Редактировать
                             </a>
                         {% endif %}
                     </td>
                     <td>
                         {% if item.status == 'FM' %}
                             <a href="{% url 'ordersapp:order_delete' item.pk %}">
-                                удалить
+                                Удалить
                             </a>
                         {% endif %}
                     </td>
@@ -52,10 +52,10 @@
         {% endfor %}
         </tbody>
     </table>
+    <a href={% url 'ordersapp:order_create' %}>
+        <input type="button" class="button button_buy green" value="Новый">
+    </a>
     <a href={% url 'main' %}>
         <input type="button" class="button button_buy" value="На главную">
-    </a>
-    <a href={% url 'ordersapp:order_create' %}>
-        <input type="button" class="button button_buy" value="Новый">
     </a>
 {% endblock %}
