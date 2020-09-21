@@ -1,5 +1,6 @@
-from django.db import models
 from django.conf import settings
+from django.db import models
+
 from mainapp.models import Product
 
 
@@ -29,3 +30,12 @@ class Basket(models.Model):
     def get_items(user):
         items = Basket.objects.filter(user=user)
         return items
+
+    def safe(self, *args, **kwargs):
+        if self.pk:
+            self.product.quantity -= self.quantity - self.__class__.get_items(self.pk).quantity
+        else:
+            self.product.quantity -= self.quantity
+        self.product.save()
+        super(self.__class__, self).save()
+

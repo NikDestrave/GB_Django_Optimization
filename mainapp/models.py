@@ -18,6 +18,11 @@ class Product(models.Model):
     price = models.DecimalField(verbose_name="Цена", max_digits=8, decimal_places=2, default=0)
     id_button = models.CharField(verbose_name="id кнопки", max_length=10)
     is_active = models.BooleanField(verbose_name='активна', default=True)
+    quantity = models.DecimalField(verbose_name='количество', max_digits=8, decimal_places=0, default=0)
 
     def __str__(self):
         return f'{self.name} ({self.category} )'
+
+    @staticmethod
+    def get_items():
+        return Product.objects.filter(is_active=True).order_by('category', 'name')
